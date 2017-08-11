@@ -10,13 +10,19 @@ var merge = require('webpack-merge');
 
 // 配置多入口
 exports.entries = function() {
-  var entryFiles = glob.sync(PAGE_PATH + '/*/*.js')
-  var map = {}
-  entryFiles.forEach((filePath) => {
+  // var entryFiles = glob.sync(PAGE_PATH + '/*/*.js')
+  // var map = {}
+  // entryFiles.forEach((filePath) => {
+  //   var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
+  //   map[filename] = filePath
+  // })
+  // return map
+  var entryFiles = glob.sync(PAGE_PATH + '/*/*.js')  // 读取pages下面的文件夹里面的.js文件
+  return entryFiles.reduce((obj,filePath) => {
     var filename = filePath.substring(filePath.lastIndexOf('\/') + 1, filePath.lastIndexOf('.'))
-    map[filename] = filePath
-  })
-  return map
+    obj[filename] = filePath
+    return obj;
+  },{})
 }
 
 // 多页面的输出配置

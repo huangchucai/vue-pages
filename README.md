@@ -14,8 +14,10 @@ npm run build
 npm run build --report
 ```
 
-> A Vue.js project
 
+### 配置相关知识
+
+ 1. [多页面的运用配置](https://github.com/huangchucai/vue-pages/issues/1)
 
 
 

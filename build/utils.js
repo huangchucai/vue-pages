@@ -77,6 +77,12 @@ exports.cssLoaders = function (options) {
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
     var loaders = [cssLoader]
+    var postcssLoader = {
+      loader:  'postcss-loader',
+      options: {
+        sourceMap: true
+      }
+    }
     if (loader) {
       loaders.push({
         loader: loader + '-loader',
@@ -84,6 +90,9 @@ exports.cssLoaders = function (options) {
           sourceMap: options.sourceMap
         })
       })
+      loaders.splice((loaders.length-1),0,postcssLoader)
+    } else {
+      loaders.push(postcssLoader)
     }
 
     // Extract CSS when that option is specified

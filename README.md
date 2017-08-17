@@ -19,6 +19,8 @@ npm run build --report
 
  1. [多页面的运用配置](https://github.com/huangchucai/vue-pages/issues/1)
 
+ 2. [多页面配置postcss问题](https://github.com/huangchucai/vue-pages/issues/2)
+
 
 
 
